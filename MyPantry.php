@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>My Pantry</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">What 2 Cook?</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -288,6 +288,10 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <!-- My Pantry -->
+                        <li class="active">
+                            <a href="MyPantry.php"><i class="fa fa-table fa-fw"></i> My Pantry</a>
+                        </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
@@ -348,18 +352,6 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li class="active">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a class="active" href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -372,7 +364,56 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Blank</h1>
+                        <h1 class="page-header">My Pantry</h1>
+                        <div id="mypantry_table">
+                          <!-- List of user's ingredients -->
+                          <?php include 'mypantry_table.php'; ?>
+                        </div>
+                        <h1>Add Item</h1>
+                        <hr />
+                        <!-- <form class="form-inline" role="form" action="insertRecord.php" method="POST"> -->
+                        <form class="form-inline" role="form">
+                          <div class="form-group">
+                            <label for="email">Ingredient:</label>
+                            <select class="form-control" id="ing" name="ing">
+                              <!-- Select all items available from database table -->
+                              <?php
+                                // require_once('conn.php');
+                                $uid = "dateutli"; // Change this with the $_SESSION['uid'];
+                                $sql = "SELECT * FROM ingredient_list";
+                                $results = mysqli_query($con, $sql);
+                                if(mysqli_num_rows($results) > 0){
+                                  while($row = mysqli_fetch_assoc($results)){
+                                    echo '<option>';
+                                    echo $row['ing'];
+                                    echo '</option>';
+                                  }
+                                }
+                              ?>
+                              <option>
+                                Other
+                              </option>
+                            </select>
+                          </div>
+                          <!-- <div id="othIng" class="form-group">
+                            <label for="uni">Other:</label>
+                            <input class="form-control" id="oth"/>
+                          </div> -->
+                          <div class="form-group">
+                            <label for="uni">Unit:</label>
+                            <select class="form-control" id="uni" name="uni">
+                              <option>Kg(s)</option>
+                              <option>Lt(s)</option>
+                              <option>NUM</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="qty">Quantity:</label>
+                            <input type="number" step="0.01" class="form-control" id="qty" name="qty" required>
+                          </div>
+                        </form>
+                        <button id="addIng" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Add</button>
+                        <div id="targetDiv"></div>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -387,6 +428,9 @@
 
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- MyPantry.js -->
+    <script src="js/MyPantry.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
