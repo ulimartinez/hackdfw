@@ -934,7 +934,11 @@
     <script src="js/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
+<<<<<<< HEAD:index.php
     <script src="js/sb-admin-2.js"></script>
+=======
+    <script src="dist/js/sb-admin-2.js"></script>
+>>>>>>> af074ed299fcdde6eb3d0fff5bd21b02dfd153df:index.html
 
 </body>
 
