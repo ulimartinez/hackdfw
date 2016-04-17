@@ -4,7 +4,6 @@
         header("Location: login.html"); /* Redirect browser */
         exit();
     }
-    var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,17 +88,32 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-cutlery fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div class="huge">
+                                      <?php
+                                        include 'conn.php';
+                                        $sql = "SELECT name FROM ingredients WHERE id = '$_SESSION[id]'";
+                                        $res = mysqli_query($con, $sql);
+                                        $row = mysqli_fetch_assoc($res);
+                                        $ingredients = $row['name'];
+                                        while($row = mysqli_fetch_assoc($res)){
+                                          $ingredients = $ingredients . ", " . $row['name'];
+                                        }
+                                        $url = "http://food2fork.com/api/search?key=c83c1fbed9af4883bc8d85b23596b560&q=".$ingredients."";
+                                        $json = file_get_contents($url);
+                                        $recipes = json_decode($json, true);
+                                        echo $recipes['count'];
+                                      ?>
+                                    </div>
+                                    <div>Recipes</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="MyRecipes.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View Recipes</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -165,6 +179,9 @@
 
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
