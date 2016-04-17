@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="myrecipes.php">
+                        <a href="MyRecipes.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Recipes</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="mypantry.php">
+                        <a href="MyPantry.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Pantry</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="myallergies.php">
+                        <a href="MyAllergies.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Allergen(s)</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

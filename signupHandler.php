@@ -21,7 +21,7 @@ require_once 'php/random/lib/random.php';
 			$salt = bin2hex(random_bytes(6));
 			$password = $password . $salt;
 			$password = md5($password);
-			$conn = new mysqli("localhost", "hackdfwuser", "1969196", "hackdfw");
+			$conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
             if ($conn -> connect_error) {
                 die("Connection failed: " . $conn -> connecterror);
             }

@@ -123,7 +123,7 @@
     </script>
 
     <!-- MyPantry.js -->
-    <script src="js/myallergies.js"></script>
+    <script src="js/MyAllergies.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

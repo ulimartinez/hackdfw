@@ -139,7 +139,7 @@
     </script>
 
     <!-- MyPantry.js -->
-    <script src="js/mypantry.js"></script>
+    <script src="js/MyPantry.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

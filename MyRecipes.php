@@ -102,7 +102,7 @@
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
 
     <!-- MyRecipes.js -->
-    <script src="js/myrecipes.js"></script>
+    <script src="js/MyRecipes.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
