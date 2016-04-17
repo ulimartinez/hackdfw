@@ -33,24 +33,27 @@ function zip_start() {
  */
 dispatch_post('/end', 'zip_end');
 function zip_end() {
-	$name = "unkown";
-    // Create a new instance of the result object and get the value of the user input.
-	$result = new Result();
-	$id = $result->getValue();
-	$conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
-    if ($conn -> connect_error) {
-        die("Connection failed: " . $conn -> connecterror);
-    }
-    $sql = "SELECT * FROM users WHERE id = " . $id;
-    $response = $conn -> query($sql);
-    if($response->num_rows > 0){
-    	$row = $response->fetch_assoc();
-    	$name = $row['username'];
-    }
-	
+	$name = "Hackdfw";
 	// Create a new instance of the Tropo object.
 	$tropo = new Tropo();
 	$tropo->say("Welcome " . $name);
+	$options = array("attempts" => 5, "bargein" => true, "choices" => "milk, bread, eggs, flour, butter, apples, fruit, sugar", "name" => "ingredient", "timeout" => 10);
+	$tropo->ask("Which ingredient did you buy?", $options);
+	$sURL = "insertRecord.php"; // The POST URL
+	$sPD = "user=Ulises&id=1001&ing=milk&uni=galons&qty=1"; // The POST Data
+	$aHTTP = array(
+  		'http' => // The wrapper to be used
+    	array(
+    		'method'  => 'POST', // Request Method
+    	// Request Headers Below
+    		'header'  => 'Content-type: application/x-www-form-urlencoded',
+    		'content' => $sPD
+  		)
+	);
+	$context = stream_context_create($aHTTP);
+	$contents = file_get_contents($sURL, false, $context);
+
+	$tropo->say("Thank you, your database has been updated");
 	
     // Render the JSON for the Tropo WebAPI to consume.
     return $tropo->RenderJson();
