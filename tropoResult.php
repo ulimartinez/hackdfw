@@ -12,7 +12,7 @@ require('lib/limonade.php');
  */
 dispatch_post('/start', 'zip_start');
 function zip_start() {
-	
+	$session = new Session();
 	// Create a new instance of the Tropo object.
 	$tropo = new Tropo();
 	
@@ -33,14 +33,20 @@ function zip_start() {
  */
 dispatch_post('/end', 'zip_end');
 function zip_end() {
-	
-    // Create a new instance of the result object and get the value of the user input.
-	$result = new Result();
-	$zip = $result->getValue();
-	
+	$name = "Hack dfw";
 	// Create a new instance of the Tropo object.
 	$tropo = new Tropo();
-	$tropo->say("You selected the id $zip");
+	$tropo->say("Welcome " . $name);
+	$options = array("attempts" => 5, "bargein" => true, "choices" => "milk, bread, eggs, flour, butter, apples, fruit, sugar", "name" => "ingredient", "timeout" => 10);
+	$tropo->ask("Which ingredient did you buy?", $options);
+	$conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
+    if ($conn -> connect_error) {
+        die("Connection failed: " . $conn -> connecterror);
+    }
+    $sql = "UPDATE ingredients SET quantity = '3' WHERE id = '1001' AND name = 'Milk'";
+    $response = $conn -> query($sql);
+	$tropo->say("Thank you, your database has been updated");
+	$tropo->hangup();
 	
     // Render the JSON for the Tropo WebAPI to consume.
     return $tropo->RenderJson();
