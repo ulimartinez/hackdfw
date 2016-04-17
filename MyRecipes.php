@@ -65,7 +65,7 @@
         <div id="page-wrapper">
           <div class="row">
               <div class="col-lg-12">
-                  <h2 class="page-header">My Recipes</h2>
+                  <h2 class="page-header"><i class="fa fa-cutlery fa-1x"></i> My Recipes</h2>
               </div>
               <!-- ingredients that I have -->
               <div class="col-lg-6">
@@ -76,6 +76,14 @@
                 <?php include 'getTopRecipes.php';?>
               </div>
               <div class="col-lg-12" id="targetDiv_recipe">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Select a Recipe</strong></h3>
+                  </div>
+                  <div class="panel-body" align="center">
+                    <img class="img-responsive" src="vid/howto.gif" />
+                  </div>
+                </div>
               </div>
               <!-- /.col-lg-12 -->
           </div>

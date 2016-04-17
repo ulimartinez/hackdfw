@@ -111,14 +111,22 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">New groceries?</div>
-                                    <div>Update your pantry</div>
+                                    <div class="huge">
+                                      <?php
+                                        include 'conn.php';
+                                        $sql = "SELECT name FROM ingredients WHERE id = '$_SESSION[id]'";
+                                        $res = mysqli_query($con, $sql);
+                                        $row = mysqli_fetch_assoc($res);
+                                        echo mysqli_num_rows($res);
+                                      ?>
+                                    </div>
+                                    <div>Items are in your pantry</div>
                                 </div>
                             </div>
                         </div>
                         <a href="mypantry.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View Pantry</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

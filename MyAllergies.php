@@ -55,7 +55,7 @@
         <div id="page-wrapper">
           <div class="row">
               <div class="col-lg-12">
-                  <h1 class="page-header">My Allergies</h1>
+                  <h1 class="page-header"><i class="fa fa-warning fa-fw"></i> My Allergies</h1>
                   <div id="myallergies_table">
                     <!-- List of user's ingredients -->
                     <?php include 'myallergies_table.php'; ?>
@@ -63,13 +63,13 @@
                   <h1>Add Allergy</h1>
                   <hr />
                   <!-- <form class="form-inline" role="form" action="insertRecord.php" method="POST"> -->
-                  <form class="form-inline" role="form">
+                  <form class="form-inline" role="form" style="display:inline-block;">
                     <div class="form-group">
                       <label for="alg">Allergen:</label>
                       <input id="alg" name="alg" class="form-control" required autofocus>
                     </div>
                   </form>
-                  <button id="addAlg" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Add</button>
+                  <button id="addAlg" class="btn btn-primary" style="display:inline-block;"><i class="fa fa-plus fa-fw"></i> Add</button>
                   <div id="targetDiv"></div>
               </div>
               <!-- /.col-lg-12 -->

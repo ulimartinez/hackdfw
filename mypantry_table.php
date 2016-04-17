@@ -24,6 +24,7 @@
     }
     echo '  </tbody>
           </table>';
+    echo '<button class="btn btn-primary" id="clearAll"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Empty Pantry</button>';
   }else{
     echo '<div class="alert alert-warning" role="alert">You have not added anything to your pantry.</div>';
   }
