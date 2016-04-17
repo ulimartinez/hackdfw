@@ -7,7 +7,7 @@
   while($row = mysqli_fetch_assoc($res)){
     $ingredients = $ingredients . ", " . $row['name'];
   }
-  $url = "http://food2fork.com/api/search?key=c83c1fbed9af4883bc8d85b23596b560&q=".$ingredients."";
+  $url = "http://food2fork.com/api/search?key=c83c1fbed9af4883bc8d85b23596b560&q=".$ingredients."&sort=t";
   $json = file_get_contents($url);
   $recipes = json_decode($json, true);
   echo '
@@ -24,21 +24,25 @@
               <li data-target="#myCarousel" data-slide-to="2"></li>
               <li data-target="#myCarousel" data-slide-to="3"></li>
               <li data-target="#myCarousel" data-slide-to="4"></li>
+              <li data-target="#myCarousel" data-slide-to="5"></li>
+              <li data-target="#myCarousel" data-slide-to="6"></li>
+              <li data-target="#myCarousel" data-slide-to="7"></li>
+              <li data-target="#myCarousel" data-slide-to="8"></li>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox" style="width:100%; height:350px;">';
-            for ($i=0; $i < 5; $i++) {
+            for ($i=0; $i < 8; $i++) {
               if($i == 0){
                 echo '<div class="item active">
-                        <img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe">
+                        <a href="#targetDiv_recipe"><img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe"></a>
                         <div class="carousel-caption">
                           <h3>'. $recipes['recipes'][$i]['title'] .'</h3>
                         </div>
                       </div>';
               }else{
                 echo '<div class="item">
-                        <img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe">
+                        <a href="#targetDiv_recipe"><img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe"></a>
                         <div class="carousel-caption">
                           <h3>'. $recipes['recipes'][$i]['title'] .'</h3>
                         </div>
