@@ -31,5 +31,6 @@ require_once 'php/random/lib/random.php';
             $toReturn['sql'] = $sql;
 		}
 	}
+	header('Location: index.php');
 	echo json_encode($toReturn);
 ?>
