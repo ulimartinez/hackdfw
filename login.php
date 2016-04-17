@@ -1,4 +1,5 @@
 <?php
+    session_start();
     header('Content-Type: application/json');
     function checkEmpty($string){
         if($string == "" OR empty($string)){
@@ -28,6 +29,8 @@
                 if($hash === $row['password']){
                     $toReturn['login'] = true;
                     $toReturn['username'] = $row['username'];
+                    $_SESSION['logged'] = "in";
+                    $_SESSION['user'] = $username;
                 }
                 else{
                     $toReturn['error'] = "Username or password incorrect";
