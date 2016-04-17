@@ -12,7 +12,7 @@ require('lib/limonade.php');
  */
 dispatch_post('/start', 'zip_start');
 function zip_start() {
-	
+	$session = new Session();
 	// Create a new instance of the Tropo object.
 	$tropo = new Tropo();
 	
@@ -35,12 +35,12 @@ dispatch_post('/end', 'zip_end');
 function zip_end() {
 	
     // Create a new instance of the result object and get the value of the user input.
-	$result = new Result();
-	$zip = $result->getValue();
+	//$result = new Result();
+	//$zip = $result->getValue();
 	
 	// Create a new instance of the Tropo object.
 	$tropo = new Tropo();
-	$tropo->say("You selected the id $zip");
+	$tropo->say("You selected the id zip");
 	
     // Render the JSON for the Tropo WebAPI to consume.
     return $tropo->RenderJson();
