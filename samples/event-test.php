@@ -1,26 +1,8 @@
 <?php
 
 // Include required classes.
-require 'classes/tropo.class.php';
-require 'classes/sag/sag.php';
-
-// Grab the raw JSON sent from Tropo.
-$json = file_get_contents("php://input");
-
-// Create a new Session object and obtain the session ID value.
-$session = new Session($json);
-$session_id = $session->getId();
-
-// Insert the Session object into a CouchDB database called sessions.
-try {
-	$sag = new Sag();
-	$sag->setDatabase("sessions");
-	$sag->put($session_id, $json);	
-}
-catch (SagCouchException $ex) {
-	die("*** ".$ex->getMessage()." ***");
-}
-
+require('tropo.class.php');
+require ('lib/limonade.php');
 // Create a new Tropo object.
 $tropo = new Tropo();
 
