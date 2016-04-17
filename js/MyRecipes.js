@@ -4,6 +4,7 @@ $(document).ready(function(){
     $.post("fetchRecipe.php", {rId: rId}, function(data){
       $("#targetDiv_recipe").html(data);
       $("#targetDiv_recipe").fadeIn(300);
+      $('#targetDiv_recipe').click();
     });
   });
 });
