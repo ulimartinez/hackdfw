@@ -91,6 +91,7 @@
                                     <i class="fa fa-cutlery fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
+                                    At least
                                     <div class="huge">
                                       <?php
                                         include 'conn.php';
@@ -107,7 +108,7 @@
                                         echo $recipes['count'];
                                       ?>
                                     </div>
-                                    <div>Recipes</div>
+                                    <div>Recipes were found</div>
                                 </div>
                             </div>
                         </div>
@@ -151,17 +152,25 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
+                                    <i class="fa fa-warning fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
+                                    You've registered
+                                    <div class="huge">
+                                      <?php
+                                        include 'conn.php';
+                                        $sql = "SELECT allergie FROM allergies WHERE id = '$_SESSION[id]'";
+                                        $res = mysqli_query($con, $sql);
+                                        echo mysqli_num_rows($res);
+                                      ?>
+                                    </div>
+                                    <div>Allergies</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="MyAllergies.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View Allergen(s)</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
