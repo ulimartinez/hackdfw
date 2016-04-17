@@ -16,7 +16,7 @@ function init(){
 	$toReturn['tropo'][0]['ask']['name'] = "id";
 
 	//ask for ingredient
-	array_push($toReturn['tropo'], array('ask' => array('say' => [array('value'=>"Hello, this is a test application running on a webserver other than tropo.")])));
+	array_push($toReturn['tropo'], array('ask' => array('say' => [array('value'=>"What item did you buy?")])));
 	$toReturn['tropo'][1]['ask']['required'] = "true";
 	$toReturn['tropo'][1]['ask']['timeout'] = 30;
 	$toReturn['tropo'][1]['ask']['choices'] = array('value' => 'ingredient(milk, eggs, bread, butter, flour, meat)');
