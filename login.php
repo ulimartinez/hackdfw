@@ -17,7 +17,7 @@
         else {
             $conn = new mysqli("localhost", "root", "", "hackdfw");
             if ($conn -> connect_error) {
-                die("Connection failed: " . $con -> connecterror);
+                die("Connection failed: " . $conn -> connecterror);
             }
             $sql = "SELECT * FROM users WHERE username = '" . $username . "'";
             $response = $conn -> query($sql);

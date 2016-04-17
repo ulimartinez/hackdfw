@@ -33,14 +33,24 @@ function zip_start() {
  */
 dispatch_post('/end', 'zip_end');
 function zip_end() {
-	
+	$name = "unkown";
     // Create a new instance of the result object and get the value of the user input.
-	//$result = new Result();
-	//$zip = $result->getValue();
+	$result = new Result();
+	$id = $result->getValue();
+	$conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
+    if ($conn -> connect_error) {
+        die("Connection failed: " . $conn -> connecterror);
+    }
+    $sql = "SELECT * FROM users WHERE id = " . $id;
+    $response = $conn -> query($sql);
+    if($response->num_rows > 0){
+    	$row = $response->fetch_assoc();
+    	$name = $row['username'];
+    }
 	
 	// Create a new instance of the Tropo object.
 	$tropo = new Tropo();
-	$tropo->say("You selected the id zip");
+	$tropo->say("Welcome " . $name);
 	
     // Render the JSON for the Tropo WebAPI to consume.
     return $tropo->RenderJson();
