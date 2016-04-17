@@ -14,3 +14,11 @@ $(document).ready(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $("#clearAll").click(function(){
+      $.post("emptyPantry.php", {}, function(data){
+        $("#mypantry_table").html(data);
+      });
+  });
+});

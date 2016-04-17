@@ -20,6 +20,7 @@
     }
     echo '  </tbody>
           </table>';
+    echo '<button class="btn btn-primary" id="clearAll"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Empty Allergen(s)</button>';
   }else{
     echo '<div class="alert alert-warning" role="alert">You have not added any allergies to your list.</div>';
   }

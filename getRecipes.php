@@ -7,13 +7,13 @@
   while($row = mysqli_fetch_assoc($res)){
     $ingredients = $ingredients . ", " . $row['name'];
   }
-  $url = "http://food2fork.com/api/search?key=c83c1fbed9af4883bc8d85b23596b560&q=".$ingredients."&sort=t";
+  $url = "http://food2fork.com/api/search?key=c83c1fbed9af4883bc8d85b23596b560&q=".$ingredients."";
   $json = file_get_contents($url);
   $recipes = json_decode($json, true);
   echo '
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">With (some) ingredients that I have</h3>
+      <h3 class="panel-title"><strong>Recipes with (some) ingredients that I have</strong></h3>
     </div>
     <div class="panel-body">';
     echo '<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -65,5 +65,7 @@
   echo '
       </div>
   </div>';
-
+  // <div class="panel-footer">
+  //   <a href="recipeList.php?ing='. $ingredients .'"><button class="btn btn-primary"><i class="fa fa-list fa-1x"></i> View List</button></a>
+  // </div>
 ?>

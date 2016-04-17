@@ -12,3 +12,10 @@ $(document).ready(function(){
     });
   });
 });
+$(document).ready(function(){
+  $("#clearAll").click(function(){
+      $.post("emptyAllergies.php", {}, function(data){
+        $("#myallergies_table").html(data);
+      });
+  });
+});
