@@ -84,10 +84,17 @@
             var username = $('#username').val();
             var password = $('#password').val();
             $.post('login.php', {'submit': true, 'username':username, 'password':password}, function(data){
-                console.log(data);
                 if(data.hasOwnProperty('login')){
-                    console.log("wtf");
                     window.location = "index.php";
+                }
+                else if(data.hasOwnProperty('error')){
+
+                    $('.panel-footer').remove();
+                    console.log(data);
+                    var footer = $('<div class="panel-footer" />');
+                    var error = $('<div class="alert alert-danger" role="alert"> />').text(data.error);
+                    footer.append(error);
+                    $('.panel').append(footer);
                 }
             });
         });
