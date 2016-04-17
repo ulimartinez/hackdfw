@@ -4,6 +4,7 @@
         header("Location: login.html"); /* Redirect browser */
         exit();
     }
+    var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +106,7 @@
                         </a>
                     </div>
                 </div>
-                
+
             </div>
             <!-- /.row -->
             <div class="row">
@@ -155,7 +156,7 @@
                 </div>
             </div>
             <!-- /.row -->
-            
+
         </div>
         <!-- /#page-wrapper -->
 
@@ -174,7 +175,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="bower_components/raphael/raphael-min.js"></script>
     <script src="bower_components/morrisjs/morris.min.js"></script>
-    
+
 
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
