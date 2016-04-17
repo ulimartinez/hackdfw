@@ -10,8 +10,10 @@
     $handle = fopen("tropopost.txt", "w");
     fwrite($handle, $json);
     for($i = 0; $i < count($response['actions']); $i++){
+        $name = "Got to counting number of actions";
         if($response['actions'][$i]['name'] === "id"){
-            $conn = new mysqli("localhost", "hackdfwuser", "9691963", "hackdfw");
+            $name = "found action id";
+            $conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
             if ($conn -> connect_error) {
                 die("Connection failed: " . $con -> connecterror);
             }
