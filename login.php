@@ -42,5 +42,8 @@
             }
         }
     }
+    else if(isset($_POST['logout'])){
+        $_SESSION = array();
+    }
     echo json_encode($toReturn);
 ?>

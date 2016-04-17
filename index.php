@@ -4,7 +4,6 @@
         header("Location: login.html"); /* Redirect browser */
         exit();
     }
-    var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -179,6 +178,16 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
+
+    <!-- logout -->
+    <script type="text/javascript">
+        $('#logout').click(function(e){
+            e.preventDefault();
+            $.post('login.php', {'logout': true}).done(function(){
+                window.location = "login.html";
+            });
+        })
+    </script>
 
 </body>
 
