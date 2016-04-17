@@ -39,11 +39,11 @@ function zip_end() {
 	$tropo->say("Welcome " . $name);
 	$options = array("attempts" => 5, "bargein" => true, "choices" => "milk, bread, eggs, flour, butter, apples, fruit, sugar", "name" => "ingredient", "timeout" => 10);
 	$tropo->ask("Which ingredient did you buy?", $options);
-	$conn = new mysqli("localhost", "root", "", "hackdfw");
+	$conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
     if ($conn -> connect_error) {
         die("Connection failed: " . $conn -> connecterror);
     }
-    $sql = "UPDATE ingredients SET quantity = 3 WHERE id = 1001 AND name = 'Milk'";
+    $sql = "UPDATE ingredients SET quantity = '3' WHERE id = '1001' AND name = 'Milk'";
     $response = $conn -> query($sql);
 	$tropo->say("Thank you, your database has been updated");
 	$tropo->hangup();
