@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="index.html" class="navbar-brand">Cook Pal</a>
+        <a href="index.php" class="navbar-brand">Cook Pal</a>
     </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
