@@ -80,7 +80,7 @@
                                         while($row = mysqli_fetch_assoc($res)){
                                           $ingredients = $ingredients . ", " . $row['name'];
                                         }
-                                        $url = "http://food2fork.com/api/search?key=c83c1fbed9af4883bc8d85b23596b560&q=".$ingredients."";
+                                        $url = "http://food2fork.com/api/search?key=390d0b2ce01701c07631dc39aa7bbd5b&q=".$ingredients."";
                                         $json = file_get_contents($url);
                                         $recipes = json_decode($json, true);
                                         echo $recipes['count'];
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="MyRecipes.php">
+                        <a href="myrecipes.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Recipes</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="MyAllergies.php">
+                        <a href="myallergies.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Allergen(s)</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

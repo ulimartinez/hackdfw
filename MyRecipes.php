@@ -76,7 +76,7 @@
                 <?php include 'getTopRecipes.php';?>
               </div>
               <div class="col-lg-12" id="targetDiv_recipe">
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                   <div class="panel-heading">
                     <h3 class="panel-title"><strong>Select a Recipe</strong></h3>
                   </div>
@@ -102,7 +102,7 @@
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
 
     <!-- MyRecipes.js -->
-    <script src="js/MyRecipes.js"></script>
+    <script src="js/myrecipes.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

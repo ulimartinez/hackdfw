@@ -73,7 +73,7 @@
                     <h3 class="panel-title"><strong>Recipe List</strong></h3>
                   </div>
                   <div class="panel-body" align="center">
-                    
+
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
 
     <!-- MyRecipes.js -->
-    <script src="js/MyRecipes.js"></script>
+    <script src="js/myrecipes.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

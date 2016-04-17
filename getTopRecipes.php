@@ -1,6 +1,6 @@
 <?php
   include 'conn.php';
-  $url = "http://food2fork.com/api/search?key=c83c1fbed9af4883bc8d85b23596b560&sort=t";
+  $url = "http://food2fork.com/api/search?key=390d0b2ce01701c07631dc39aa7bbd5b&sort=t";
   $json = file_get_contents($url);
   $recipes = json_decode($json, true);
   echo '
