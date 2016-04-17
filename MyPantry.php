@@ -55,7 +55,7 @@
         <div id="page-wrapper">
           <div class="row">
               <div class="col-lg-12">
-                  <h1 class="page-header">My Pantry</h1>
+                  <h1 class="page-header"><i class="fa fa-shopping-cart fa-1x"></i> My Pantry</h1>
                   <div id="mypantry_table">
                     <!-- List of user's ingredients -->
                     <?php include 'mypantry_table.php'; ?>
@@ -63,7 +63,7 @@
                   <h1>Add Item</h1>
                   <hr />
                   <!-- <form class="form-inline" role="form" action="insertRecord.php" method="POST"> -->
-                  <form class="form-inline" role="form">
+                  <form class="form-inline" role="form" style="display:inline-block;">
                     <div class="form-group">
                       <label for="email">Ingredient:</label>
                       <input id="ing" class="form-control" required autofocus>
@@ -75,8 +75,8 @@
                     <div class="form-group">
                       <label for="uni">Unit:</label>
                       <select class="form-control" id="uni" name="uni">
-                        <option>Kg(s)</option>
-                        <option>Lt(s)</option>
+                        <option>Lb(s)</option>
+                        <option>GAL</option>
                         <option>NUM</option>
                       </select>
                     </div>
@@ -85,8 +85,8 @@
                       <input type="number" step="0.01" class="form-control" id="qty" name="qty" required>
                     </div>
                   </form>
-                  <button id="addIng" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Add</button>
-                  <div id="targetDiv"></div>
+                  <button style="display:inline-block;" id="addIng" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Add</button><br />
+                  <div id="targetDiv"></div><br />
               </div>
               <!-- /.col-lg-12 -->
           </div>

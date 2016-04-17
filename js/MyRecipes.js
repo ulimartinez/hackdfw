@@ -8,3 +8,14 @@ $(document).ready(function(){
     });
   });
 });
+$(document).ready(function(){
+  $("#sendRecipe").click(function(){
+    var rId = $('#rId').val();
+    var noe = $('#noe').val();
+    $.post("sendRecipe.php", {rId: rId, noe:noe}, function(data){
+      $("#message_sent").html(data);
+      $("#message_sent").fadeIn(300);
+      $('#message_sent').click();
+    });
+  });
+});

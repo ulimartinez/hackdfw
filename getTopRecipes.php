@@ -6,7 +6,7 @@
   echo '
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Top Recipes</h3>
+      <h3 class="panel-title"><strong>Top Recipes</strong></h3>
     </div>
     <div class="panel-body">';
     echo '<div id="myCarousel2" class="carousel slide" data-ride="carousel">
@@ -29,14 +29,14 @@
             for ($i=0; $i < 8; $i++) {
               if($i == 0){
                 echo '<div class="item active">
-                          <img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe">
+                          <a href="#targetDiv_recipe"><img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe"></a>
                         <div class="carousel-caption">
                           <h3>'. $recipes['recipes'][$i]['title'] .'</h3>
                         </div>
                       </div>';
               }else{
                 echo '<div class="item">
-                        <img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe">
+                        <a href="#targetDiv_recipe"><img id="'. $recipes['recipes'][$i]['recipe_id'] .'"class="centered-image" src="'. $recipes['recipes'][$i]['image_url'] .'" alt="Recipe"></a>
                         <div class="carousel-caption">
                           <h3>'. $recipes['recipes'][$i]['title'] .'</h3>
                         </div>
@@ -59,5 +59,7 @@
   echo '
       </div>
   </div>';
-
+  // <div class="panel-footer">
+  //   <a href="recipeList.php?"><button class="btn btn-primary"><i class="fa fa-list fa-1x"></i> View List</button></a>
+  // </div>
 ?>
