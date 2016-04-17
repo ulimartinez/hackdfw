@@ -1,7 +1,7 @@
 <?php
   $email = $_POST['noe'];
   $rId = $_POST['rId'];
-  $url = "http://food2fork.com/api/get/?key=c83c1fbed9af4883bc8d85b23596b560&rId=".$rId."";
+  $url = "http://food2fork.com/api/get/?key=390d0b2ce01701c07631dc39aa7bbd5b&rId=".$rId."";
   $json = file_get_contents($url);
   $recipe = json_decode($json, true);
 
@@ -20,6 +20,6 @@
   // send email
   mail($email,$title,$msg);
 
-  echo "<div class="alert alert-success" role="alert">Recipe has been sent!</div>";
+  echo '<div class="alert alert-success" role="alert">Recipe has been sent!</div>';
 
 ?>
