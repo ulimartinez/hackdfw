@@ -6,7 +6,7 @@ $(document).ready(function(){
     $.post("insertRecord.php", {ing: ing, uni: uni, qty:qty}, function(data){
       $("#targetDiv").html(data);
       $("#targetDiv").fadeIn(300);
-      $("#targetDiv").fadeOut(3000);
+      $("#targetDiv").fadeOut(2000);
     });
     $.post("mypantry_table.php", {}, function(data){
       $("#mypantry_table").html(data);

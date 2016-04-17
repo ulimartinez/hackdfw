@@ -18,7 +18,7 @@
     <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -290,7 +290,7 @@
                         </li>
                         <!-- My Pantry -->
                         <li class="active">
-                            <a href="MyPantry.php"><i class="fa fa-table fa-fw"></i> My Pantry</a>
+                            <a href="MyPantry.php"><i class="fa fa-table fa-cutlery"></i> My Pantry</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
@@ -439,7 +439,7 @@
     <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
+    <script src="js/sb-admin-2.js"></script>
 
 </body>
 
