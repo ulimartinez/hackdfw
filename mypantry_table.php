@@ -1,7 +1,10 @@
 <?php
   require_once('conn.php');
-  $una = "dateutli"; // Change this with the $_SESSION['una'];
-  $uid = "123"; // Change this with the $_SESSION['uid'];
+  if(!isset($_SESSION)){
+    session_start();
+  }
+  $una = $_SESSION['user'];
+  $uid = $_SESSION['id'];
   $sql = "SELECT * FROM ingredients WHERE id = '$uid'";
   $results = mysqli_query($con, $sql);
   if(mysqli_num_rows($results) > 0){

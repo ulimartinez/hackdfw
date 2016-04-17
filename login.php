@@ -31,6 +31,7 @@
                     $toReturn['username'] = $row['username'];
                     $_SESSION['logged'] = "in";
                     $_SESSION['user'] = $username;
+                    $_SESSION['id'] = $row['id'];
                 }
                 else{
                     $toReturn['error'] = "Username or password incorrect";

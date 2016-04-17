@@ -1,9 +1,9 @@
 <?php
-    // session_start();
-    // if(!isset($_SESSION['logged'])){
-    //     header("Location: login.html"); /* Redirect browser */
-    //     exit();
-    // }
+    session_start();
+    if(!isset($_SESSION['logged'])){
+        header("Location: login.html"); /* Redirect browser */
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
