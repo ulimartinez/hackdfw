@@ -15,7 +15,7 @@
             $toReturn['error'] = "Must input both values";
         }
         else {
-            $conn = new mysqli("localhost", "root", "", "hackdfw");
+            $conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
             if ($conn -> connect_error) {
                 die("Connection failed: " . $conn -> connecterror);
             }
