@@ -13,3 +13,9 @@ $(document).ready(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $.get("http://food2fork.com/api/get/", {key: "c83c1fbed9af4883bc8d85b23596b560", rId: "35120"}, function(data){
+    console.log(data);
+  });
+});
