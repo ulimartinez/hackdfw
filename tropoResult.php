@@ -5,6 +5,8 @@
         $arr['tropo'] = array();
 	}
     $response = json_decode($_POST['actions'], true);
+    $handle = fopen("tropopost.txt", "w");
+    fwrite($handle, $response);
     for($i = 0; $i < count($response); $i++){
         if($response[$i]['name'] === "id"){
             $conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
