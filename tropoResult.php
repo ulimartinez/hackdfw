@@ -13,40 +13,19 @@ require('lib/limonade.php');
 dispatch_post('/start', 'zip_start');
 function zip_start() {
 	
-	// Create a new instance of the Session object, and get the channel information.
-	$session = new Session();
-	$from_info = $session->getFrom();
-	$channel = $from_info['channel'];
-	
 	// Create a new instance of the Tropo object.
 	$tropo = new Tropo();
 	
-	// See if any text was sent with session start.
-	$initial_text = $session->getInitialText();
-	
-	// If the initial text is a zip code, skip the input collection and get weather information.
-	if(strlen($initial_text) == 5 && is_numeric($initial_text)) {
-		formatWeatherResponse($tropo, $initial_text);
-	}
-	
-	else {
-		// Welcome prompt (for phone channel, and IM/SMS sessions with invalid initial text).
-		$tropo->say("Welcome to the Tropo PHP zip code example for $channel");
+	$tropo->say("Welcome to Cook Pal.");
 		
-		// Set up options form zip code input
-		$options = array("attempts" => 3, "bargein" => true, "choices" => "[5 DIGITS]", "name" => "zip", "timeout" => 5);
-		
-		// Ask the user for input, pass in options.
-		$tropo->ask("Please enter your 5 digit zip code.", $options);
-		
-		// Tell Tropo what to do when the user has entered input, or if there is an error.
-		$tropo->on(array("event" => "continue", "next" => "get_zip_code.php?uri=end", "say" => "Please hold."));
-		$tropo->on(array("event" => "error", "next" => "get_zip_code.php?uri=error", "say" => "An error has occured."));
-	}
-	
-	// Render the JSON for the Tropo WebAPI to consume.
-	return $tropo->RenderJson();
-	
+	// Set up options form zip code input
+	$options = array("attempts" => 5, "bargein" => true, "choices" => "[4 DIGITS]", "name" => "id", "timeout" => 10);
+	$tropo->ask("Please enter your 4 digit identification number.", $options);
+
+	// Set event handlers
+	$tropo->on(array("event" => "continue", "next" => "tropoResult.php?uri=end", "say" => "Please hold."));
+	// Render JSON for Tropo to consume.
+	return $tropo->renderJSON();
 }
 
 /**
