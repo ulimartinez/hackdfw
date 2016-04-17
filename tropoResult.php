@@ -5,22 +5,21 @@
         $arr['tropo'] = array();
 	}
     $response = json_decode($_POST['actions'], true);
+    $name = "sorry, name not found";
+    $response = json_decode($json, true);
     $handle = fopen("tropopost.txt", "w");
-    fwrite($handle, $response);
-    for($i = 0; $i < count($response); $i++){
-        if($response[$i]['name'] === "id"){
-            $conn = new mysqli("localhost", "hackdfwuser", "19691963", "hackdfw");
+    fwrite($handle, $json);
+    for($i = 0; $i < count($response['actions']); $i++){
+        if($response['actions'][$i]['name'] === "id"){
+            $conn = new mysqli("localhost", "hackdfwuser", "9691963", "hackdfw");
             if ($conn -> connect_error) {
                 die("Connection failed: " . $con -> connecterror);
             }
-            $sql = "SELECT * FROM users WHERE id = " . $response[$i]['interpretation'];
+            $sql = "SELECT * FROM users WHERE id = " . $response['actions'][$i]['interpretation'];
             $sqlResponse = $conn -> query($sql);
-            $row = $sqlResponse->fetch_assoc();
-            if($row->num_rows > 0){
+            if($sqlResponse->num_rows > 0){
+                $row = $sqlResponse->fetch_assoc();
                 $name = $row['username'];
-            }
-            else{
-                $name = "sorry, name not found";
             }
         }
     }
