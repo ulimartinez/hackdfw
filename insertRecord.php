@@ -6,6 +6,14 @@
   $ing = $_POST['ing'];
   $uni = $_POST['uni'];
   $qty = $_POST['qty'];
+
+  $sql = "SELECT * FROM ingredient_list WHERE ing = '$ing'";
+  $res = mysqli_query($con, $sql) or die(mysqli_error($con));
+  if(mysqli_num_rows($res) == 0){
+    $sql = "INSERT INTO ingredient_list (ing)VALUES('$ing')";
+    $res = mysqli_query($con, $sql) or die(mysqli_error($con));
+  }
+
   if($qty==''){
     echo '<br /><div class="alert alert-warning" role="alert">Quantity was not specified.</div>';
   }else{

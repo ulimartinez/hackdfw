@@ -36,6 +36,16 @@
     <!-- Custom Fonts -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <style>
+    .centered-image{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 100%;
+      width: 100%;
+    }
+    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,38 +65,17 @@
         <div id="page-wrapper">
           <div class="row">
               <div class="col-lg-12">
-                  <h1 class="page-header">My Pantry</h1>
-                  <div id="mypantry_table">
-                    <!-- List of user's ingredients -->
-                    <?php include 'mypantry_table.php'; ?>
-                  </div>
-                  <h1>Add Item</h1>
-                  <hr />
-                  <!-- <form class="form-inline" role="form" action="insertRecord.php" method="POST"> -->
-                  <form class="form-inline" role="form">
-                    <div class="form-group">
-                      <label for="email">Ingredient:</label>
-                      <input id="ing" class="form-control" required autofocus>
-                    </div>
-                    <!-- <div id="othIng" class="form-group">
-                      <label for="uni">Other:</label>
-                      <input class="form-control" id="oth"/>
-                    </div> -->
-                    <div class="form-group">
-                      <label for="uni">Unit:</label>
-                      <select class="form-control" id="uni" name="uni">
-                        <option>Kg(s)</option>
-                        <option>Lt(s)</option>
-                        <option>NUM</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="qty">Quantity:</label>
-                      <input type="number" step="0.01" class="form-control" id="qty" name="qty" required>
-                    </div>
-                  </form>
-                  <button id="addIng" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Add</button>
-                  <div id="targetDiv"></div>
+                  <h2 class="page-header">My Recipes</h2>
+              </div>
+              <!-- ingredients that I have -->
+              <div class="col-lg-6">
+                <?php include 'getRecipes.php';?>
+              </div>
+              <!-- ingredients that I don't have -->
+              <div class="col-lg-6">
+                <?php include 'getTopRecipes.php';?>
+              </div>
+              <div class="col-lg-12" id="targetDiv_recipe">
               </div>
               <!-- /.col-lg-12 -->
           </div>
@@ -104,42 +93,8 @@
     <!-- jQuery UI -->
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
 
-    <script>
-    var availableTags;
-    $(function() {
-
-      availableTags = [
-        <?php
-          // require_once('conn.php');
-          $sql = "SELECT * FROM ingredient_list";
-          $results = mysqli_query($con, $sql);
-          $total = mysqli_num_rows($results);
-          if($total > 0){
-            $i = 1;
-            while($row = mysqli_fetch_assoc($results)){
-              if($i == $total){
-                echo '"'. $row['ing'] .'"';
-              }else{
-                echo '"' . $row['ing'] . '",';
-              }
-              $i++;
-            }
-          }
-        ?>
-      ];
-
-      $( "#ing" ).autocomplete({
-
-        source: availableTags
-
-      });
-
-    });
-
-    </script>
-
-    <!-- MyPantry.js -->
-    <script src="js/MyPantry.js"></script>
+    <!-- MyRecipes.js -->
+    <script src="js/MyRecipes.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
